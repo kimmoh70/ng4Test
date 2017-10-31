@@ -1,10 +1,15 @@
-<p>
+<h3>year</h3>
   <input
     type="number"
     name="year"
     [(ngModel)]="car.year"
   >
+<h3>colour</h3>
+  <input
+  type="text"
+  name="colour"
+  [(ngModel)]="car.colour"
+>
   <button type="button" class="btn btn-primary" (click)="save()">
     Save
   </button>
-</p>
