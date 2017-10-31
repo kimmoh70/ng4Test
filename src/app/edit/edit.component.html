@@ -1,0 +1,8 @@
+<div class="form-group">
+  <input id="year"
+         type="text"
+         class="form-control"
+         [(ngModel)]="car.year"
+         name="name"
+         (blur)="update(car.year); car.year='' ">
+</div>
