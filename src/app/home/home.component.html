@@ -7,10 +7,54 @@
   </h2>
 </div>
 <div>
-<ul>
-  <li *ngFor="let car of cars" >
-  {{ car.year }} <editor [car]="car">Edit</editor>
-  </li>
-</ul>
+  <data-table id="cars-grid"
+    [items] = cars
+    [itemCount] = itemCount
+  >
+    <data-table-column 
+      [property]="'year'"
+      [header]="'Year'"
+      [sortable]="true"
+      [resizable]="true"
+    ></data-table-column>
+    <data-table-column 
+    [property]="'colour'"
+    [header]="'Colour'"
+    [sortable]="true"
+    [resizable]="true"
+    ></data-table-column>
+    <data-table-column 
+    [property]="'variant'"
+    [header]="'Version'"
+    [sortable]="true"
+    [resizable]="true"
+    ></data-table-column>
+    <data-table-column [property]="'engine'"
+    [header]="'Engine'"
+    [sortable]="true"
+    [resizable]="true"></data-table-column>
+    <data-table-column [property]="'gearbox'"
+    [header]="'Gearbox'"
+    [sortable]="true"
+    [resizable]="true"></data-table-column>
+    <data-table-column [property]="'rego'"
+    [header]="'Rego'"
+    [sortable]="true"
+    [resizable]="true"></data-table-column>
+    <data-table-column [property]="'location'"
+    [header]="'Location'"
+    [sortable]="true"
+    [resizable]="true"></data-table-column>
+    <data-table-column [property]="'owners'"
+    [header]="'Owners'"
+    [sortable]="true"
+    [resizable]="true"
+    ></data-table-column>
+    <data-table-column [property]="'description'"
+    [header]="'Description'"
+    [sortable]="true"
+    [resizable]="true"
+    ></data-table-column>    
+  </data-table>
 </div>
 

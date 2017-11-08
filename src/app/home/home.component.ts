@@ -11,6 +11,7 @@ import {Observable} from "rxjs/Observable";
 export class HomeComponent implements OnInit {
   title = 'Cx Database';
   cars: Car[];
+  itemCount: number;
   
   constructor(private carService: CarService) {
     this.getCars(carService.getCars());
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit {
   private getCars(service: Observable<Car[]>) {
     service.subscribe(data => {
       this.cars = data;
+      this.itemCount = (data || []).length;
     })
   }
 }

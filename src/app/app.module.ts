@@ -10,7 +10,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
+import { ReactiveFormsModule } from '@angular/forms';
+import { DataTableModule } from 'angular-2-data-table';
 
 const appRoutes: Routes = [
   {
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTableModule
   ],
   providers: [
     CarService
