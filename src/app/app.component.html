@@ -1,18 +1,2 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <h2>
-    <a routerLink="/create" routerLinkActive="active">Create</a>
-  </h2>
-</div>
-<div>
-<ul>
-  <li *ngFor="let car of cars" >
-  {{ car.year }} <editor [car]="car">Edit</editor>
-  </li>
-</ul>
 <router-outlet></router-outlet>
-</div>
 
