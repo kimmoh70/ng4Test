@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../models/car';
-import {CarService} from "../car.service";
-import {Observable} from "rxjs/Observable";
+import {CarService} from '../car.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
-  title = 'Cx Database';
+  static title = 'Cx Database';
   cars: Car[];
   itemCount: number;
-  
+
   constructor(private carService: CarService) {
-    this.getCars(carService.getCars());
+    this.getCars(carService.getCarsQuery());
   }
 
   ngOnInit() {
@@ -24,6 +25,6 @@ export class HomeComponent implements OnInit {
     service.subscribe(data => {
       this.cars = data;
       this.itemCount = (data || []).length;
-    })
+    });
   }
 }
