@@ -10,7 +10,8 @@
   <data-table id="cars-grid"
     [items] = cars
     [itemCount] = itemCount
-  >
+    (reload)="reloadItems($event)"
+    >
     <data-table-column 
       [property]="'year'"
       [header]="'Year'"

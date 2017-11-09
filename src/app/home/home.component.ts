@@ -15,10 +15,14 @@ export class HomeComponent implements OnInit {
   itemCount: number;
 
   constructor(private carService: CarService) {
-    this.getCars(carService.getCarsQuery());
+    //this.getCars(this.carService.getCarsQuery());
   }
 
   ngOnInit() {
+  }
+
+  private reloadItems(params) {
+    this.getCars(this.carService.getCarsQuery(params));    
   }
 
   private getCars(service: Observable<Car[]>) {
