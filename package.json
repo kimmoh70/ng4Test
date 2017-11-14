@@ -21,9 +21,10 @@
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
     "@angular/router": "^4.4.6",
-    "angular-2-data-table": "^0.1.2",
+    "angular-4-data-table-bootstrap-4": "^0.2.0",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
