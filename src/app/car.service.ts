@@ -1,10 +1,11 @@
+import {NgModule} from "@angular/core";
 import {Injectable} from '@angular/core';
 import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Car} from './models/car';
 import {Subscription} from 'rxjs/Subscription';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { DataTableParams } from 'angular-2-data-table';
+import { DataTableParams } from 'angular-4-data-table-bootstrap-4';
 
 function paramsToQueryString(params: DataTableParams) {
   let result = [];
@@ -26,6 +27,7 @@ function paramsToQueryString(params: DataTableParams) {
 }
 
 @Injectable()
+@NgModule()
 export class CarService {
   private url: string = 'http://localhost:4567/api/cars';
 
@@ -39,13 +41,30 @@ export class CarService {
 
   public getCarsQuery(params: DataTableParams): Observable<Car[]> {
     return this.http.get(this.url + '?' + paramsToQueryString(params))
-      .map(this.extractData);
-    //.catch(error => console.log(error));
+      .map(r => (<any[]>r).sort((a,b) => this.sorter(a, b, params) ))
+      .map(r => r.slice(params.offset, params.offset + params.limit));
+    //.map(this.extractData);
+      //.catch(error => console.log(error));
+  }
+
+  private sorter(a,b,params): number {
+    if(params.sortBy) {
+      return params.sortAsc ? a[params.sortBy] - b[params.sortBy] : b[params.sortBy] - a[params.sortBy];
+    }
+    return 1;
   }
 
   private extractData( response: Response){
     let body = response;
     return body || [];
+  }
+
+  private sortData(response: {response: any[], params: any}): Car[] {
+    if(response.params.sortBy) {
+      return response.response
+      .sort((a, b) => a.params[response.params.sortBy] - b.params[response.params.sortBy])
+    }
+    return response.response;
   }
 
   public add(car: Car): Subscription {
