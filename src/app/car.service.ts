@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Car} from './models/car';
 import {Subscription} from 'rxjs/Subscription';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { DataTableParams } from 'angular-2-data-table';
+import { DataTableParams } from 'angular-4-data-table-bootstrap-4';
 
 function paramsToQueryString(params: DataTableParams) {
   let result = [];

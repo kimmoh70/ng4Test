@@ -11,7 +11,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DataTableModule } from 'angular-2-data-table';
+import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
 
 const appRoutes: Routes = [
   {
