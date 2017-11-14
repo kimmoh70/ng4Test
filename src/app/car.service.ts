@@ -1,10 +1,11 @@
+import {NgModule} from "@angular/core";
 import {Injectable} from '@angular/core';
 import { Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Car} from './models/car';
 import {Subscription} from 'rxjs/Subscription';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { DataTableParams } from 'angular-2-data-table';
+import { DataTableParams } from 'angular-4-data-table-bootstrap-4';
 
 function paramsToQueryString(params: DataTableParams) {
   let result = [];
@@ -26,6 +27,7 @@ function paramsToQueryString(params: DataTableParams) {
 }
 
 @Injectable()
+@NgModule()
 export class CarService {
   private url: string = 'http://localhost:4567/api/cars';
 
