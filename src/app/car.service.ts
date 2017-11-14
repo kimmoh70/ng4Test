@@ -34,17 +34,13 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   public getCars(): Observable<Car[]> {
-    return this.http.get(this.url)
-      .map(this.extractData);
-      //.catch(error => console.log(error));
+    return this.http.get<Car[]>(this.url);
   }
 
   public getCarsQuery(params: DataTableParams): Observable<Car[]> {
     return this.http.get(this.url + '?' + paramsToQueryString(params))
       .map(r => (<any[]>r).sort((a,b) => this.sorter(a, b, params) ))
       .map(r => r.slice(params.offset, params.offset + params.limit));
-    //.map(this.extractData);
-      //.catch(error => console.log(error));
   }
 
   private sorter(a,b,params): number {
