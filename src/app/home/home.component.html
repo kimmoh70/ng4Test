@@ -11,6 +11,8 @@
     [items] = cars
     [itemCount] = itemCount
     (reload)="reloadItems($event)"
+
+    (rowClick)="rowClick($event)"    
     >
     <data-table-column 
       [property]="'year'"

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from '../models/car';
 import {CarService} from '../car.service';
 import {Observable} from 'rxjs/Observable';
+import { DataTableModule } from 'angular-4-data-table-bootstrap-4';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,10 @@ export class HomeComponent implements OnInit {
 
   private reloadItems(params) {
     this.getCars(this.carService.getCarsQuery(params));    
+  }
+
+  private rowClick(row) {
+
   }
 
   private getCars(service: Observable<Car[]>) {
