@@ -34,8 +34,7 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   public getCars(): Observable<Car[]> {
-    return this.http.get(this.url)
-      .map(this.extractData);
+    return this.http.get<Car[]>(this.url)
       //.catch(error => console.log(error));
   }
 
@@ -52,11 +51,6 @@ export class CarService {
       return params.sortAsc ? a[params.sortBy] - b[params.sortBy] : b[params.sortBy] - a[params.sortBy];
     }
     return 1;
-  }
-
-  private extractData( response: Response){
-    let body = response;
-    return body || [];
   }
 
   private sortData(response: {response: any[], params: any}): Car[] {
