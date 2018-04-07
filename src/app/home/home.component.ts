@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   private reloadItems(params) {
-    this.getCars(this.carService.getCarsQuery(params));    
+    this.getCars(this.carService.getCarsQuery(params));
   }
 
   private rowClick(row) {
